@@ -1,6 +1,6 @@
-# 1 - Bulbasaur
-# 2 - Ivysaur
-# 3 - Venusaur
+# 1 - Bulbasaur - OK
+# 2 - Ivysaur - OK
+# 3 - Venusaur - OK
 # 4 - Charmander
 # 5 - Charmeleon
 # 6 - Charizard

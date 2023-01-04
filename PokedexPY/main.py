@@ -1,13 +1,13 @@
 import mysql.connector
 from mysql.connector import Error
 
-id = " '1' "
-nome = " 'Bulbasaur' "
+id = " '3' "
+nome = " 'Venusaur' "
 tipo = " 'Grass,Poison' "
 categoria = " 'Seed' "
 habilidade = " 'Overgrow' "
-peso = " '6.9' "
-altura = " '0.7' "
+peso = " '100.0' "
+altura = " '2.0' "
 fraqueza = " 'Fire,Psychic,Flying,Ice' "
 descricao = " '' "
 var = "(" + id + "," + nome + "," + tipo + "," + categoria + "," + habilidade + "," + peso + "," + altura + "," + fraqueza + "," + descricao + ")"
