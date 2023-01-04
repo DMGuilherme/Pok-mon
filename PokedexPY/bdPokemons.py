@@ -1,0 +1,10 @@
+id = " '1' "
+nome = " 'Bulbasaur' "
+tipo = " 'Grass,Poison' "
+categoria = " 'Seed' "
+habilidade = " 'Overgrow' "
+peso = " '6.9' "
+altura = " '0.7' "
+fraqueza = " 'Fire,Psychic,Flying,Ice' "
+descricao = " '' "
+
