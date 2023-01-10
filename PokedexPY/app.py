@@ -1,25 +1,37 @@
-from tkinter import *
+import pygame
+pygame.init()
 
-root = Tk()
-#canvas = Canvas(root,width=800,height= 800, bd=0,highlightthickness=0)
-#canvas.pack()
+# Define the size of the screen (width, height).
+size = (700, 500)
+screen = pygame.display.set_mode(size)
 
-root.title("Pokedex Pernambucana")
+pygame.display.set_caption("My Game")
 
-#img2 = canvas.create_image(25,25, img=img)
+# Loop until the user clicks the close button.
+done = False
 
-#botões
-img = PhotoImage(file="PokedexPY/img/pokedex.png")
-imgBotaoDireita = PhotoImage(file="PokedexPY/img/pokedexseta.png")
+# Used to manage how fast the screen updates.
+clock = pygame.time.Clock()
 
-label_imagem = Label(root, image=img).pack()
-botao = Button(root,image=imgBotaoDireita)
-botao.place(x=550,y=550)
+while not done:
+    # --- Main event loop
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            done = True
 
+    # --- Game logic should go here
 
+    # --- Drawing code should go here
 
+    # First, clear the screen to white. Don't put other drawing commands
+    # above this, or they will be erased with this command.
+    screen.fill((255, 255, 255))
 
-root.configure(background="#000")
-root.geometry("850x950+850+50")
-root.resizable(False,False)
-root.mainloop()
+    # --- Go ahead and update the screen with what we've drawn.
+    pygame.display.flip()
+
+    # --- Limit to 60 frames per second
+    clock.tick(60)
+
+# Close the window and quit.
+pygame.quit()
