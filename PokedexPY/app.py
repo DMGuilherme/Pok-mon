@@ -4,9 +4,12 @@ from mysql.connector import Error
 
 app = Flask(__name__, static_folder='static')
 
-@app.route("/")
+@app.route('/')
+@app.route('/index')
 def index():
-    return render_template("index.html")
+    nome = "Eu"
+    dados = {"Prof": "Teac"}
+    return render_template('index.html', nome=nome, dados=dados)
 
 con = mysql.connector.connect(
     host='containers-us-west-110.railway.app',
@@ -16,10 +19,12 @@ con = mysql.connector.connect(
     password = 'rvDfUENmgLTJlaqXODGf'
     )
 
-@app.route('/info')
-def info():
+@app.route('/info/<id>')
+def info(id):
     cursor = con.cursor()
     cursor.execute('SELECT * FROM Pokemon where id = 1')
     result = cursor.fetchall()
     return jsonify(result)
+
+
 
