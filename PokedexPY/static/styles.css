@@ -1,0 +1,59 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    border: 2px solid greenyellow;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("{{ url_for('static', filename= 'background.jpg') }}");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+}
+.pokedex{
+    border: 2px solid blue;
+    height: 59.6rem;
+    width: 52rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column; 
+    background-image: url(/Pok-mon/PokedexPY/static/img/pokedex.png);
+    background-repeat: no-repeat;
+    background-size: 55rem 65rem;
+    background-position: center;
+
+}
+.terrainPokemon{
+    height: 17rem;
+    width: 21rem;
+    margin-top: 1.5rem;
+    margin-left: 12rem;
+    background-image: url(/Pok-mon/PokedexPY/static/img/fundopkmn.jpg);
+    background-repeat: no-repeat;
+    background-size: 25rem 25rem;
+    background-position: bottom;
+}
+
+.gifPokemon{
+    border: 2px solid aquamarine;
+    height: 17rem;
+    width: 21rem;
+    background-image: url(/Pok-mon/PokedexPY/static/img/gifPokemons/bulbasaur.gif);
+    background-repeat: no-repeat;
+    background-size: 5rem 5rem;
+    background-position: center;
+
+}
+.infoPokemon{
+    border: 2px solid yellow;
+    height: 17rem;
+    width: 21rem;
+    margin-top: 4rem;
+    margin-left: 11.4rem;
+}
