@@ -2,8 +2,10 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokedex Pernambucana</title>
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 <!--    <link rel="stylesheet" type="text/css" href="styles.css"> -->
 </head>
 <body>
@@ -13,9 +15,14 @@
                  <div class="gifPokemon"></div>    
             </div>
             <div class="infoPokemon">
-                <nav>
-                    <p href="/index">Aqui tem que aparecer as info</p>
-                </nav>
+                <p>{{nome}}</p>
+                <p>{{tipo}}</p>
+                <p>{{categoria}}</p>
+                <p>{{habilidade}}</p>
+                <p>{{peso}}</p>
+                <p>{{altura}}</p>
+                <p>{{fraqueza}}</p>
+                <p>{{descricao}}</p>
             </div>
         </div>
     </div>
