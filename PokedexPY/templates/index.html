@@ -15,12 +15,14 @@
                  <div class="gifPokemon"></div>    
             </div>
             <div class="buttonAndInfo">
-                <div class="buttonDirectional">
+                <form class="buttonDirectional" method="post" action="{[url_for('infoPokemons')]}">
+                    <!-- <label for="id"></label> -->
+                    <!-- <input type="text" name="id" id="id"> -->
                     <div class="arrowUp"></div>
-                    <div class="arrowLeft"></div>
+                    <input class="arrowLeft" type="submit" name="changePokemon" value="decrement">
                     <div class="arrowDown"></div>
-                    <div class="arrowRight"></div>
-                </div>
+                    <input class="arrowRight" type="submit" name="changePokemon" value="increment">
+                </form>
                 <div class="infoPokemon">
                     <p>{{nome}}</p>
                     <p>{{tipo}}</p>

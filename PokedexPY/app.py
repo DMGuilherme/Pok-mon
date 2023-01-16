@@ -13,10 +13,19 @@ con = mysql.connector.connect(
     password = 'rvDfUENmgLTJlaqXODGf'
     )
 @app.route('/')
-@app.route('/info')
-def info():
+def index():
+    return render_template('index.html')
+@app.route('/<id>')
+def infoPokemons(id):
+    #id = int(request.form['id'])
+    #action = request.form['changePokemon']
     cursor = con.cursor()
-    cursor.execute('SELECT * FROM Pokemon where id = 1')
+    cursor.execute('SELECT * FROM Pokemon where id = {}'.format(id))
+    #if action == 'increment':
+
+    #elif action == 'decrement':
+        #cursor.execute('SELECT * FROM Pokemon where id = {}'.format(id))
+
     result = cursor.fetchall()
     pokemons = json.loads(jsonify(result).get_data())
     [(id_, nome_, tipo_, categoria_, habilidade_, peso_, altura_, fraqueza_, descricao_)] = pokemons
