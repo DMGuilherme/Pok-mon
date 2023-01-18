@@ -1,6 +1,6 @@
 import json
 
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, jsonify, redirect, url_for
 import mysql.connector
 
 app = Flask(__name__, static_folder='static')
@@ -15,17 +15,10 @@ con = mysql.connector.connect(
 @app.route('/')
 def index():
     return render_template('index.html')
-@app.route('/<id>')
+@app.route('/<id>', methods=['GET','POST'])
 def infoPokemons(id):
-    #id = int(request.form['id'])
-    #action = request.form['changePokemon']
     cursor = con.cursor()
     cursor.execute('SELECT * FROM Pokemon where id = {}'.format(id))
-    #if action == 'increment':
-
-    #elif action == 'decrement':
-        #cursor.execute('SELECT * FROM Pokemon where id = {}'.format(id))
-
     result = cursor.fetchall()
     pokemons = json.loads(jsonify(result).get_data())
     [(id_, nome_, tipo_, categoria_, habilidade_, peso_, altura_, fraqueza_, descricao_)] = pokemons
@@ -43,6 +36,19 @@ def infoPokemons(id):
                            altura = altura, fraqueza = fraqueza,
                            descricao = descricao)
 
+id = 0
+@app.route('/pokemons', methods=['GET','POST'])
+def pokemons():
+    global id
+    id += 1
+    return redirect(url_for('infoPokemons', id=id))
+
+def decrease():
+    global id
+    id -= 1
+    return redirect(url_for('infoPokemons', id=id))
+
+app.run(debug=True)
 #[[1,"Bulbasaur","Grass,Poison","Seed","Overgrow",6.9,0.7,"Fire,Psychic,Flying,Ice",""]]
 
 # id
