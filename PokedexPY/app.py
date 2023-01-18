@@ -37,12 +37,12 @@ def infoPokemons(id):
                            descricao = descricao)
 
 id = 0
-@app.route('/pokemons', methods=['GET','POST'])
-def pokemons():
+@app.route('/increment', methods=['GET','POST'])
+def increment():
     global id
     id += 1
     return redirect(url_for('infoPokemons', id=id))
-
+@app.route('/decrease', methods=['GET', 'POST'])
 def decrease():
     global id
     id -= 1
