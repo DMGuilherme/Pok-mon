@@ -64,5 +64,3 @@ app.run(debug=True)
 # altura
 # fraqueza
 # descricao
-
-
