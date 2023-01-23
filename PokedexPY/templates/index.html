@@ -18,12 +18,12 @@
                 <div class="buttonDirectional">
                     <!-- <label for="id"></label> -->
                     <!-- <input type="text" name="id" id="id"> -->
-                    <div class="arrowUp"></div>
+                    <form action="{{url_for('passInfo')}}" method="post"><button class="arrowUp" onclick="{[url_for('/<passInfo>')]}"></button></form>
                     <form action="{{url_for('decrease')}}" method="post"><button class="arrowLeft" onclick="{[url_for('/<decrease>')]}"></button></form>
-                    <div class="arrowDown"></div>
+                    <form action="{{url_for('passInfo')}}" method="post"><button class="arrowDown" onclick="{[url_for('/<passInfo>')]}"></button></form>
                     <form action="{{url_for('increment')}}" method="post"><button class="arrowRight" onclick="{[url_for('/<increment>')]}"></button></form>
                 </div>
-                <div class="infoPokemon">
+                <div class="infoPokemon" style="visibility: {{info_1}};">
                     <p id="nome">{{nome}}</p>
                     <p>Tipo: {{tipo}}</p>
                     <p>Categoria: {{categoria}}</p>
@@ -31,7 +31,7 @@
                     <p>Peso: {{peso}}</p>
                     <p>Altura: {{altura}}</p>
                     <p>Fraquezas: {{fraqueza}}</p>
-                    <p>Informações: {{descricao}}</p>
+                    <p id="descricao" style="visibility: {{info_2}};">Informações: {{descricao}}</p>
                 </div>
                 <div class="buttonAB">
                     <div class="buttonA"></div>

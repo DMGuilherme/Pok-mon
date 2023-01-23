@@ -4,7 +4,9 @@ from flask import Flask, render_template, jsonify, redirect, url_for
 import mysql.connector
 
 app = Flask(__name__, static_folder='static')
-id = 0
+idSave = 0
+info_1 = 'visible'
+info_2 = 'hidden'
 
 con = mysql.connector.connect(
     host='containers-us-west-110.railway.app',
@@ -15,10 +17,15 @@ con = mysql.connector.connect(
     )
 @app.route('/')
 def index():
-    global id
-    return render_template('index.html', id = id)
+    global idSave
+    global info_1
+    global info_2
+    return render_template('index.html')
 @app.route('/<id>', methods=['GET','POST'])
 def infoPokemons(id):
+    global idSave
+    global info_1
+    global info_2
     cursor = con.cursor()
     cursor.execute('SELECT * FROM Pokemon where id = {}'.format(id))
     result = cursor.fetchall()
@@ -33,24 +40,40 @@ def infoPokemons(id):
     altura = altura_
     fraqueza = fraqueza_
     descricao = descricao_
+    idSave = id
     return render_template('index.html', id = id, nome = nome,
                            tipo = tipo, categoria = categoria,
                            habilidade = habilidade, peso = peso,
                            altura = altura, fraqueza = fraqueza,
-                           descricao = descricao)
+                           descricao = descricao, info_1 = info_1,
+                           info_2 = info_2)
 
 @app.route('/increment', methods=['GET','POST'])
 def increment():
-    global id
-    id += 1
+    global idSave
+    idSave += 1
+    id = idSave
     return redirect(url_for('infoPokemons', id = id))
 @app.route('/decrease', methods=['GET', 'POST'])
 def decrease():
-    global id
-    if id > 1:
-        id -= 1
+    global idSave
+    if idSave > 1:
+        idSave -= 1
+    id = idSave
     return redirect(url_for('infoPokemons', id = id))
 
+@app.route('/passInfo', methods=['POST'])
+def passInfo():
+    global info_1
+    global info_2
+    if info_1 == 'visible':
+        info_1 = 'hidden'
+        info_2 = 'visible'
+    else:
+        info_1 = 'visible'
+        info_2 = 'hidden'
+    id = idSave
+    return redirect(url_for('infoPokemons', id = id,))
 
 app.run(debug=True)
 #[[1,"Bulbasaur","Grass,Poison","Seed","Overgrow",6.9,0.7,"Fire,Psychic,Flying,Ice",""]]
