@@ -71,9 +71,11 @@
     align-content: space-between;
 }
 .arrowUp{
-    border: 2px solid rgb(246, 247, 245);
+    border: 2px solid greenyellow;
+    background: none;
     width: 2.7rem;
     height: 2.7rem;
+    cursor: pointer;
     position: relative;
     left: 2.6rem;
     background-image: url(./img/botoes/arrowUp.png);
@@ -82,6 +84,7 @@
 }
 .arrowRight{
     border: 2px solid greenyellow;
+    background: none;
     width: 2.7rem;
     height: 2.7rem;
     position: relative;
@@ -92,9 +95,11 @@
     background-position: center;
 }
 .arrowDown{
-    border: 2px solid rgb(255, 255, 255);
+    border: 2px solid greenyellow;
+    background: none;
     width: 2.7rem;
-    height: 2.7rem;    
+    height: 2.7rem;
+    cursor: pointer;
     position: relative;
     right: 2.5rem;
     top: 5.3rem;
@@ -104,6 +109,7 @@
 }
 .arrowLeft{
     border: 2px solid greenyellow;
+    background: none;
     width: 2.7rem;
     height: 2.7rem;
     cursor: pointer;
@@ -121,17 +127,29 @@
     flex-direction: column;
     font-family: 'Press Start 2P', cursive;
     font-size: 0.8rem;
-    row-gap: 0.5rem;
+    row-gap: 0.7rem;
     flex-wrap: wrap;
     padding-left: 0.5rem;
+    padding-top: 0.5rem;
 }
 #nome{
-    position: absolute;
-    bottom: 19.6rem;
+    position: relative;
+    top: 0.2rem;
     font-size: 1.5rem;
     font-weight: 550;
     letter-spacing: 0rem;
     align-self: center;
+}
+#descricao{
+    position: relative;
+    bottom: 10rem;
+}
+#search{
+    border: 2px solid aquamarine;
+    background-color: black;
+    width: 15rem;
+    height: 2rem;
+    align-self: center
 }
 .buttonAB{
     border: 2px solid rgb(255, 255, 255);
@@ -149,10 +167,13 @@
     width: 3rem;
     height: 3rem;
     border-radius: 50%;
+    cursor: pointer;
+    background: none;
 }
 .buttonB{
     border: 2px solid greenyellow;
     width: 3rem;
     height: 3rem;
     border-radius: 50%;
+    cursor: pointer;
 }

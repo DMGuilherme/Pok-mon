@@ -32,9 +32,10 @@
                     <p>Altura: {{altura}}</p>
                     <p>Fraquezas: {{fraqueza}}</p>
                     <p id="descricao" style="visibility: {{info_2}};">Informações: {{descricao}}</p>
+                    <div id="search" style="visibility: {{search_1}};"></div>
                 </div>
                 <div class="buttonAB">
-                    <div class="buttonA"></div>
+                    <form action="{{url_for('search')}}" method="post"><button class="buttonA" onclick="{[url_for('/<search>')]}"></button></form>
                     <div class="buttonB"></div>
                 </div>
             </div>

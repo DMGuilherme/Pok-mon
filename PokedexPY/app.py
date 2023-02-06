@@ -7,25 +7,21 @@ app = Flask(__name__, static_folder='static')
 idSave = 0
 info_1 = 'visible'
 info_2 = 'hidden'
+search_1 = 'hidden'
 
 con = mysql.connector.connect(
     host='containers-us-west-110.railway.app',
     port='7415',
     database='railway',
     user = 'root',
-    password = 'rvDfUENmgLTJlaqXODGf'
+    password = 'XllljYq946VUKVI7Caxl'
     )
 @app.route('/')
 def index():
-    global idSave
-    global info_1
-    global info_2
     return render_template('index.html')
 @app.route('/<id>', methods=['GET','POST'])
 def infoPokemons(id):
     global idSave
-    global info_1
-    global info_2
     cursor = con.cursor()
     cursor.execute('SELECT * FROM Pokemon where id = {}'.format(id))
     result = cursor.fetchall()
@@ -46,7 +42,7 @@ def infoPokemons(id):
                            habilidade = habilidade, peso = peso,
                            altura = altura, fraqueza = fraqueza,
                            descricao = descricao, info_1 = info_1,
-                           info_2 = info_2)
+                           info_2 = info_2, search_1 = search_1)
 
 @app.route('/increment', methods=['GET','POST'])
 def increment():
@@ -73,7 +69,18 @@ def passInfo():
         info_1 = 'visible'
         info_2 = 'hidden'
     id = idSave
-    return redirect(url_for('infoPokemons', id = id,))
+    return redirect(url_for('infoPokemons', id = id))
+
+@app.route('/search', methods=['POST'])
+def search():
+    global search_1
+    if search_1 == 'visible':
+        search_1 = 'hidden'
+    else:
+        search_1 = 'visible'
+    id = idSave
+    return redirect(url_for('infoPokemons', id = id))
+
 
 app.run(debug=True)
 #[[1,"Bulbasaur","Grass,Poison","Seed","Overgrow",6.9,0.7,"Fire,Psychic,Flying,Ice",""]]
