@@ -1,6 +1,4 @@
-import json
-
-from flask import Flask, render_template, jsonify, redirect, url_for, request
+from flask import Flask, render_template, redirect, url_for, request
 import mysql.connector
 
 app = Flask(__name__, static_folder='static')
@@ -28,8 +26,7 @@ def infoPokemons(id):
         cursor.execute('SELECT * FROM Pokemon where id = {}'.format(id))
     except:
         cursor.execute('SELECT * FROM Pokemon where nome = "{}"'.format(id))
-    result = cursor.fetchall()
-    pokemons = json.loads(jsonify(result).get_data())
+    pokemons = cursor.fetchall()
     if not pokemons:
         return 'Unknow'
     pokemon = pokemons[0]
