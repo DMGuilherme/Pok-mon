@@ -145,11 +145,11 @@
     bottom: 10rem;
 }
 #search{
-    border: 2px solid aquamarine;
-    background-color: black;
     width: 15rem;
     height: 2rem;
-    align-self: center
+    position: relative;
+    left: 2.5rem;
+    bottom: 0.5rem;
 }
 .buttonAB{
     border: 2px solid rgb(255, 255, 255);

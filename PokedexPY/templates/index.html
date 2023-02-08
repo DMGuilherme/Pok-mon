@@ -32,7 +32,9 @@
                     <p>Altura: {{altura}}</p>
                     <p>Fraquezas: {{fraqueza}}</p>
                     <p id="descricao" style="visibility: {{info_2}};">Informações: {{descricao}}</p>
-                    <div id="search" style="visibility: {{search_1}};"></div>
+                    <form action="{{url_for('searchPokemons')}}" method="post">
+                        <input id="search" style="visibility: {{search_1}};" type="text" name="searchPokemon">
+                    </form>
                 </div>
                 <div class="buttonAB">
                     <form action="{{url_for('search')}}" method="post"><button class="buttonA" onclick="{[url_for('/<search>')]}"></button></form>

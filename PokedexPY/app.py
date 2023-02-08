@@ -1,6 +1,6 @@
 import json
 
-from flask import Flask, render_template, jsonify, redirect, url_for
+from flask import Flask, render_template, jsonify, redirect, url_for, request
 import mysql.connector
 
 app = Flask(__name__, static_folder='static')
@@ -23,25 +23,23 @@ def index():
 def infoPokemons(id):
     global idSave
     cursor = con.cursor()
-    cursor.execute('SELECT * FROM Pokemon where id = {}'.format(id))
+    try:
+        id = int(id)
+        cursor.execute('SELECT * FROM Pokemon where id = {}'.format(id))
+    except:
+        cursor.execute('SELECT * FROM Pokemon where nome = "{}"'.format(id))
     result = cursor.fetchall()
     pokemons = json.loads(jsonify(result).get_data())
-    [(id_, nome_, tipo_, categoria_, habilidade_, peso_, altura_, fraqueza_, descricao_)] = pokemons
-    id = id_
-    nome = nome_
-    tipo = tipo_
-    categoria = categoria_
-    habilidade = habilidade_
-    peso = peso_
-    altura = altura_
-    fraqueza = fraqueza_
-    descricao = descricao_
+    if not pokemons:
+        return 'Unknow'
+    pokemon = pokemons[0]
+    id = pokemon[0]
     idSave = id
-    return render_template('index.html', id = id, nome = nome,
-                           tipo = tipo, categoria = categoria,
-                           habilidade = habilidade, peso = peso,
-                           altura = altura, fraqueza = fraqueza,
-                           descricao = descricao, info_1 = info_1,
+    return render_template('index.html', id = id, nome = pokemon[1],
+                           tipo = pokemon[2], categoria = pokemon[3],
+                           habilidade = pokemon[4], peso = pokemon[5],
+                           altura = pokemon[6], fraqueza = pokemon[7],
+                           descricao = pokemon[8], info_1 = info_1,
                            info_2 = info_2, search_1 = search_1)
 
 @app.route('/increment', methods=['GET','POST'])
@@ -80,6 +78,11 @@ def search():
         search_1 = 'visible'
     id = idSave
     return redirect(url_for('infoPokemons', id = id))
+
+@app.route('/searchPokemons', methods=['GET', 'POST'])
+def searchPokemons():
+    searchPokemon = request.form.get('searchPokemon')
+    return redirect(url_for('infoPokemons', id = searchPokemon))
 
 
 app.run(debug=True)
