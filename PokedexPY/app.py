@@ -1,3 +1,4 @@
+import time
 from flask import Flask, render_template, redirect, url_for, request
 import mysql.connector
 
@@ -9,8 +10,8 @@ search_1 = 'hidden'
 
 con = mysql.connector.connect(
     host='containers-us-west-110.railway.app',
-    port='7415',
-    database='railway',
+    port = '7415',
+    database = 'railway',
     user = 'root',
     password = 'XllljYq946VUKVI7Caxl'
     )
@@ -23,20 +24,20 @@ def infoPokemons(id):
     cursor = con.cursor()
     try:
         id = int(id)
-        cursor.execute('SELECT * FROM Pokemon where id = {}'.format(id))
+        cursor.execute('SELECT * FROM Pokemon where id = %s', (id,))
     except:
-        cursor.execute('SELECT * FROM Pokemon where nome = "{}"'.format(id))
-    pokemons = cursor.fetchall()
+        cursor.execute('SELECT * FROM Pokemon where nome = %s', (id,))
+    pokemons = cursor.fetchone()
+    cursor.close()
     if not pokemons:
         return 'Unknow'
-    pokemon = pokemons[0]
-    id = pokemon[0]
+    id = pokemons[0]
     idSave = id
-    return render_template('index.html', id = id, nome = pokemon[1],
-                           tipo = pokemon[2], categoria = pokemon[3],
-                           habilidade = pokemon[4], peso = pokemon[5],
-                           altura = pokemon[6], fraqueza = pokemon[7],
-                           descricao = pokemon[8], info_1 = info_1,
+    return render_template('index.html', id = id, nome = pokemons[1],
+                           tipo = pokemons[2], categoria = pokemons[3],
+                           habilidade = pokemons[4], peso = pokemons[5],
+                           altura = pokemons[6], fraqueza = pokemons[7],
+                           descricao = pokemons[8], info_1 = info_1,
                            info_2 = info_2, search_1 = search_1)
 
 @app.route('/increment', methods=['GET','POST'])
@@ -44,6 +45,7 @@ def increment():
     global idSave
     idSave += 1
     id = idSave
+    time.sleep(0.3)
     return redirect(url_for('infoPokemons', id = id))
 @app.route('/decrease', methods=['GET', 'POST'])
 def decrease():
@@ -51,6 +53,7 @@ def decrease():
     if idSave > 1:
         idSave -= 1
     id = idSave
+    time.sleep(0.3)
     return redirect(url_for('infoPokemons', id = id))
 
 @app.route('/passInfo', methods=['POST'])
@@ -64,6 +67,7 @@ def passInfo():
         info_1 = 'visible'
         info_2 = 'hidden'
     id = idSave
+    time.sleep(0.3)
     return redirect(url_for('infoPokemons', id = id))
 
 @app.route('/search', methods=['POST'])
@@ -74,6 +78,7 @@ def search():
     else:
         search_1 = 'visible'
     id = idSave
+    time.sleep(0.3)
     return redirect(url_for('infoPokemons', id = id))
 
 @app.route('/searchPokemons', methods=['GET', 'POST'])
