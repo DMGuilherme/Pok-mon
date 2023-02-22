@@ -5,8 +5,8 @@
     <meta http-equiv="x-ua-compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokedex Pernambucana</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-<!--    <link rel="stylesheet" type="text/css" href="styles.css"> -->
+       <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"> 
+<!--     <link rel="stylesheet" type="text/css" href="styles.css"> -->
 </head>
 <body>
     <div class="container">
@@ -24,17 +24,23 @@
                     <form action="{{url_for('increment')}}" method="post"><button class="arrowRight" onclick="{[url_for('/<increment>')]}"></button></form>
                 </div>
                 <div class="infoPokemon" style="visibility: {{info_1}};">
-                    <p id="nome">{{nome}}</p>
-                    <p>Tipo: {{tipo}}</p>
-                    <p>Categoria: {{categoria}}</p>
-                    <p>Habilidades: {{habilidade}}</p>
-                    <p>Peso: {{peso}}</p>
-                    <p>Altura: {{altura}}</p>
-                    <p>Fraquezas: {{fraqueza}}</p>
-                    <p id="descricao" style="visibility: {{info_2}};">Informações: {{descricao}}</p>
-                    <form action="{{url_for('searchPokemons')}}" method="post">
-                        <input id="search" style="visibility: {{search_1}};" type="text" name="searchPokemon">
-                    </form>
+                    <div class="container-nome">
+                        <p id="nome">{{nome}}</p>
+                    </div>
+                    <div class="container-descricao">
+                        <p>Tipo: {{tipo}}</p>
+                        <p>Categoria: {{categoria}}</p>
+                        <p>Habilidades: {{habilidade}}</p>
+                        <p>Peso: {{peso}}</p>
+                        <p>Altura: {{altura}}</p>
+                        <p>Fraquezas: {{fraqueza}}</p>
+                        <p id="descricao" style="visibility: {{info_2}};">Informações: {{descricao}}</p>
+                    </div>
+                    <div class="container-search">
+                        <form action="{{url_for('searchPokemons')}}" method="post">
+                            <input id="search" style="visibility: {{search_1}};" type="text" name="searchPokemon">
+                        </form>
+                    </div>
                 </div>
                 <div class="buttonAB">
                     <form action="{{url_for('search')}}" method="post"><button class="buttonA" onclick="{[url_for('/<search>')]}"></button></form>
