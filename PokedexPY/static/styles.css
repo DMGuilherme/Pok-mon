@@ -73,40 +73,46 @@
     flex-direction: column;
     align-content: space-between;
 }
-
 .arrowUp{
     border: 2px solid greenyellow;
-    background: none;
+    background: red;
     width: 2.4rem;
-    height: 2.7rem;
+    height: 3.9rem;
+    clip-path: polygon(0 0, 100% 0, 100% 50%, 48% 100%, 0 50%);
     cursor: pointer;
     position: relative;
-    left: 2.5rem;
+    left: 2.6rem;
 }
 .arrowRight{
     border: 2px solid greenyellow;
-    background: none;
-    width: 2.7rem;
+    background: red;
+    width: 3.7rem;
     height: 2.6rem;
-    position: relative;
+    clip-path: polygon(50% 0, 100% 0%, 100% 100%, 50% 100%, 0% 50%);
     cursor: pointer;
+    position: relative;
+    bottom: 1.1rem;
 }
 .arrowDown{
     border: 2px solid greenyellow;
-    background: none;
+    background: red;
     width: 2.4rem;
-    height: 2.7rem;
+    height: 3.8rem;
+    clip-path: polygon(0 100%, 0 50%, 50% 0, 100% 50%, 100% 100%);
     cursor: pointer;
     position: relative;
-    right: 2.3rem;
-    top: 5.3rem;
+    right: 1.3rem;
+    top: 4.3rem;
 }
 .arrowLeft{
     border: 2px solid greenyellow;
-    background: none;
-    width: 2.7rem;
+    background: red;
+    width: 3.7rem;
     height: 2.6rem;
+    clip-path: polygon(0 0, 50% 0, 100% 45%, 50% 100%, 0% 100%);
     cursor: pointer;
+    position: relative;
+    bottom: 1.1rem;
 }
 .infoPokemon{
     border: 2px solid white;

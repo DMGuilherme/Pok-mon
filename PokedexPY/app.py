@@ -1,6 +1,9 @@
+import os
 import time
 from flask import Flask, render_template, redirect, url_for, request
 import mysql.connector
+from dotenv import load_dotenv
+load_dotenv()
 
 app = Flask(__name__, static_folder='static')
 idSave = 0
@@ -9,11 +12,11 @@ info_2 = 'hidden'
 search_1 = 'hidden'
 
 con = mysql.connector.connect(
-    host='containers-us-west-110.railway.app',
-    port = '7415',
-    database = 'railway',
-    user = 'root',
-    password = 'XllljYq946VUKVI7Caxl'
+    host = os.environ['host'],
+    port = os.environ['port'],
+    database = os.environ['database'],
+    user = os.environ['user'],
+    password = os.environ['password']
     )
 @app.route('/')
 def index():
@@ -45,7 +48,6 @@ def increment():
     global idSave
     idSave += 1
     id = idSave
-    time.sleep(0.3)
     return redirect(url_for('infoPokemons', id = id))
 @app.route('/decrease', methods=['GET', 'POST'])
 def decrease():
@@ -53,7 +55,6 @@ def decrease():
     if idSave > 1:
         idSave -= 1
     id = idSave
-    time.sleep(0.3)
     return redirect(url_for('infoPokemons', id = id))
 
 @app.route('/passInfo', methods=['POST'])
@@ -67,7 +68,6 @@ def passInfo():
         info_1 = 'visible'
         info_2 = 'hidden'
     id = idSave
-    time.sleep(0.3)
     return redirect(url_for('infoPokemons', id = id))
 
 @app.route('/search', methods=['POST'])
@@ -78,7 +78,6 @@ def search():
     else:
         search_1 = 'visible'
     id = idSave
-    time.sleep(0.3)
     return redirect(url_for('infoPokemons', id = id))
 
 @app.route('/searchPokemons', methods=['GET', 'POST'])
