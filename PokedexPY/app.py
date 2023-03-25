@@ -18,6 +18,7 @@ con = mysql.connector.connect(
     user = os.environ['user'],
     password = os.environ['password']
     )
+
 @app.route('/')
 def index():
     return render_template('index.html')
