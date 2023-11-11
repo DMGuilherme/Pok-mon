@@ -20,8 +20,8 @@ con = mysql.connector.connect(
     )
 
 @app.route('/')
-def index():
-    return render_template('index.html')
+def home():
+    return render_template('home.html')
 @app.route('/<id>', methods=['GET','POST'])
 def infoPokemons(id):
     global idSave
@@ -88,14 +88,4 @@ def searchPokemons():
 
 
 app.run(debug=True)
-#[[1,"Bulbasaur","Grass,Poison","Seed","Overgrow",6.9,0.7,"Fire,Psychic,Flying,Ice",""]]
 
-# id
-# nome
-# tipo
-# categoria
-# habilidade
-# peso
-# altura
-# fraqueza
-# descricao

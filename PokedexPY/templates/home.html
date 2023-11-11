@@ -2,17 +2,17 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta http-equiv="X-UA-compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokedex Pernambucana</title>
-       <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"> 
-<!--     <link rel="stylesheet" type="text/css" href="styles.css"> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <!--      <link rel="stylesheet" type="text/css" href="styles.css">  -->
 </head>
 <body>
     <section class="container">
         <section class="pokedex">
             <div class="terrainPokemon"> 
-                 <div class="gifPokemon" style="background-image: url(./static/img/gifPokemons/{{id}}.gif);"></div>
+                 <div class="gifPokemon" style="background-image: url(./static/img/POKEPE.png);"></div>
             </div>
             <div class="buttonAndInfo">
                 <div class="buttonDirectional">
@@ -25,16 +25,22 @@
                 </div>
                 <div class="infoPokemon" style="visibility: {{info_1}};">
                     <div class="container-nome">
-                        <p id="nome">{{nome}}</p>
+                        <p><font size="4">Poke PE</font></p>
                     </div>
-                    <div class="container-descricao">
-                        <p>Tipo: {{tipo}}</p>
-                        <p>Categoria: {{categoria}}</p>
-                        <p>Habilidades: {{habilidade}}</p>
-                        <p>Peso: {{peso}}</p>
-                        <p>Altura: {{altura}}</p>
-                        <p>Fraquezas: {{fraqueza}}</p>
-                        <p id="descricao" style="visibility: {{info_2}};">Informações: {{descricao}}</p>
+                    <div class="introduction">
+                        <p>Poke PE é uma criação com o intuito de mostrar alguns
+                            Pokemons que viveriam na região de Pernambuco.
+                        </p>
+                        <h4 ><br/>Devs</h4 >
+                        <p>
+                            Guilherme Domingos
+                            <br/>Luiz Henrique Sousa
+                        </p>
+                        <h4 ><br/>Arte</h4 >
+                        <p>
+                            Guilherme Domingos
+                            <br/>Petrus Machado
+                        </p>
                     </div>
                     <div class="container-search">
                         <form action="{{url_for('searchPokemons')}}" method="post">

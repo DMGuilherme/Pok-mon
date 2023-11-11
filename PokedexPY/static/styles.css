@@ -6,7 +6,6 @@
     box-sizing: border-box;
 }
 .container{
-    border: 2px solid greenyellow;
     height: 100%;
     width: 100%;
     display: flex;
@@ -18,7 +17,6 @@
 
 }
 .pokedex{
-    border: 2px solid blue;
     height: 58.9rem;
     width: 50rem;
     display: flex;
@@ -32,29 +30,26 @@
 
 }
 .terrainPokemon{
-    border: 2px solid yellow;
     height: 23.6rem;
     width: 30.5rem;
     margin-left: 10.2rem;
     border-radius: 1rem;
     background-image: url(./img/fundopkmn.jpg);
     background-repeat: no-repeat;
-    background-size: 30rem 30rem;
+    background-size: 32rem 32rem;
     background-position: bottom;
 }
 
 .gifPokemon{
-    border: 2px solid aqua;
     height: 23.4rem;
     width: 30.4rem;
     border-radius: 1rem;
     background-repeat: no-repeat;
     background-size: 40rem ;
     background-position: 55% 45%;
-    
+
 }
 .buttonAndInfo{
-    border: 2px solid yellow;
     display: flex;
     align-items: center;
     height: 22.7rem;
@@ -63,19 +58,15 @@
     margin-top: 0.3rem;
 }
 .buttonDirectional{
-    border: 2px solid rgb(255, 255, 255);
-    border-radius: 50%;
     width: 7.8rem;
     height: 8.2rem;
-    margin-left: 3.4rem;
+    margin-left: 3.5rem;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     align-content: space-between;
 }
 .arrowUp{
-    border: 2px solid greenyellow;
-    background: red;
     width: 2.4rem;
     height: 3.9rem;
     clip-path: polygon(0 0, 100% 0, 100% 50%, 48% 100%, 0 50%);
@@ -84,8 +75,6 @@
     left: 2.6rem;
 }
 .arrowRight{
-    border: 2px solid greenyellow;
-    background: red;
     width: 3.7rem;
     height: 2.6rem;
     clip-path: polygon(50% 0, 100% 0%, 100% 100%, 50% 100%, 0% 50%);
@@ -94,8 +83,6 @@
     bottom: 1.1rem;
 }
 .arrowDown{
-    border: 2px solid greenyellow;
-    background: red;
     width: 2.4rem;
     height: 3.8rem;
     clip-path: polygon(0 100%, 0 50%, 50% 0, 100% 50%, 100% 100%);
@@ -105,8 +92,6 @@
     top: 4.3rem;
 }
 .arrowLeft{
-    border: 2px solid greenyellow;
-    background: red;
     width: 3.7rem;
     height: 2.6rem;
     clip-path: polygon(0 0, 50% 0, 100% 45%, 50% 100%, 0% 100%);
@@ -115,7 +100,6 @@
     bottom: 1.1rem;
 }
 .infoPokemon{
-    border: 2px solid white;
     height: 22.5rem;
     width: 30.5rem;
     margin-left: 1.6rem;
@@ -132,7 +116,6 @@
     padding-top: 0.5rem;
 }
 .container-nome{
-    border: 2px solid red;
     text-align: center;
 }
 #nome{
@@ -143,19 +126,16 @@
     letter-spacing: 0rem;
     align-self: center;
 }
-.container-descricao{    
-    border: 2px solid red;
+.container-descricao{
     height: 15rem;
 }
 #descricao{
-    border: 2px solid blue;
     position: fixed;
     bottom: 7rem;
     height: 15rem;
     width: 29.9rem;
 }
 .container-search{
-    border: 2px solid red;
     text-align: center;
 }
 #search{
@@ -163,7 +143,6 @@
     height: 2rem;
 }
 .buttonAB{
-    border: 2px solid rgb(255, 255, 255);
     width: 1rem;
     height: 11.5rem;
     border-radius: 1rem;
@@ -175,15 +154,19 @@
     align-self: flex-end;
 }
 .buttonA{
-    border: 2px solid greenyellow;
     height: 4.5rem;
     width: 100%;
     cursor: pointer;
     background: none;
 }
 .buttonB{
-    border: 2px solid greenyellow;
     height: 4.5rem;
     width: 100%;
     cursor: pointer;
+    background: none;
+}
+.introduction{
+    height: 15rem;
+    text-align: center;
+    overflow-y: auto;
 }
